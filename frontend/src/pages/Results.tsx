@@ -10,29 +10,29 @@ interface LocationState {
   formData?: PredictionRequest;
 }
 
-function InsightList({ title, icon, items, tone }: { title: string; icon: string; items: string[]; tone: 'good' | 'warn' | 'neutral' }) {
-  const toneClass =
-    tone === 'good' ? 'border-emerald-800/40 bg-emerald-900/10' :
-    tone === 'warn' ? 'border-amber-800/40 bg-amber-900/10' :
-    'border-slate-800 bg-slate-900';
-  const dotClass = tone === 'good' ? 'bg-emerald-400' : tone === 'warn' ? 'bg-amber-400' : 'bg-slate-500';
+// function InsightList({ title, icon, items, tone }: { title: string; icon: string; items: string[]; tone: 'good' | 'warn' | 'neutral' }) {
+//   const toneClass =
+//     tone === 'good' ? 'border-emerald-800/40 bg-emerald-900/10' :
+//     tone === 'warn' ? 'border-amber-800/40 bg-amber-900/10' :
+//     'border-slate-800 bg-slate-900';
+//   const dotClass = tone === 'good' ? 'bg-emerald-400' : tone === 'warn' ? 'bg-amber-400' : 'bg-slate-500';
 
-  return (
-    <div className={`rounded-2xl border p-5 ${toneClass}`}>
-      <p className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-3">
-        {icon} {title}
-      </p>
-      <ul className="space-y-2">
-        {items.map((item, i) => (
-          <li key={i} className="flex items-start gap-2 text-sm text-slate-200">
-            <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${dotClass}`} />
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+//   return (
+//     <div className={`rounded-2xl border p-5 ${toneClass}`}>
+//       <p className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-3">
+//         {icon} {title}
+//       </p>
+//       <ul className="space-y-2">
+//         {items.map((item, i) => (
+//           <li key={i} className="flex items-start gap-2 text-sm text-slate-200">
+//             <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${dotClass}`} />
+//             {item}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
 
 export default function Results() {
   const location = useLocation();
