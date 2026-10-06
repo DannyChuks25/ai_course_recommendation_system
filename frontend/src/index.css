@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+
+.button-previous{
+  @apply border px-2 py-1 rounded-md cursor-pointer
+}
+
+.button-next{
+  @apply border px-2 py-1 bg-black text-white rounded-md cursor-pointer
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(400%); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251,191,36,0.25); }
+  50%      { box-shadow: 0 0 0 6px rgba(251,191,36,0); }
+}
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.6); }
+  70%  { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn { animation: fadeIn 0.35s ease-out both; }
+.animate-fadeInUp { animation: fadeInUp 0.5s ease-out both; }
+.animate-shimmer { animation: shimmer 2.2s ease-in-out infinite; }
+.animate-slideInRight { animation: slideInRight 0.32s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-slideInLeft { animation: slideInLeft 0.32s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-scaleIn { animation: scaleIn 0.25s ease-out both; }
+.animate-pulseGlow { animation: pulseGlow 2s ease-in-out infinite; }
+.animate-popIn { animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+/* Respect users who prefer reduced motion: this blanket override beats
+   every animation/transition above (including Tailwind's built-in
+   animate-spin/pulse/bounce utilities used for loaders), rather than
+   relying on an incomplete per-class list. Loading spinners still get
+   a single instant frame so progress state is never silently lost. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
